@@ -38,6 +38,15 @@ jobs:
           docker compose up -d
 
 
+      - name: Wait until web service responds
+        run: |
+            echo "Waiting for app to be ready..."
+            until curl --fail http://localhost:8080/health; do
+                echo "Web server hasn't started yet"
+                sleep 2
+            done
+
+
       - name: Launch tests
         run: |
           pytest
