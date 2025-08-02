@@ -32,8 +32,9 @@ jobs:
       - name: Set up target project & launch
         run: |
           git clone https://x-access-token:${{ secrets.GH_GLOBAL_PAT }}@github.com/james6168/flask-postgres-alembic.git
-          cd flask-postgres-alembic
+          cd flask-postgres-alembic/app
           cp settings.yml.template settings.yml
+          cd ../
           docker compose up -d
 
 
