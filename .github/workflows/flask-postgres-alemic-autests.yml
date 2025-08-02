@@ -29,11 +29,11 @@ jobs:
           cp .env.template .env
 
 
-      - name: Set up target project
+      - name: Set up target project & launch
         run: |
           git clone https://x-access-token:${{ secrets.GH_GLOBAL_PAT }}@github.com/james6168/flask-postgres-alembic.git
           cd flask-postgres-alembic
-          copy settings.yml.template settings.yml
+          cp settings.yml.template settings.yml
           docker compose up -d
 
 
